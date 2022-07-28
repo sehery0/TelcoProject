@@ -12,11 +12,12 @@ public class Subscription {
     private List<Invoice> invoices;
     private Address address;
     private Customer customer;
+    private List<SubscriptionPacket> subscriptionPackets;
 
     public Subscription() {
     }
 
-    public Subscription(int id, LocalDate dateStarted, Service service, Packet packet, LocalDate dueDate, List<Invoice> invoices, Address address, Customer customer) {
+    public Subscription(int id, LocalDate dateStarted, Service service, Packet packet, LocalDate dueDate, List<Invoice> invoices, Address address, Customer customer, List<SubscriptionPacket> subscriptionPackets) {
         this.id = id;
         this.dateStarted = dateStarted;
         this.service = service;
@@ -25,6 +26,7 @@ public class Subscription {
         this.invoices = invoices;
         this.address = address;
         this.customer = customer;
+        this.subscriptionPackets = subscriptionPackets;
     }
 
     public int getId() {
@@ -90,5 +92,15 @@ public class Subscription {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+	public List<SubscriptionPacket> getSubscriptionPackets() {
+		return subscriptionPackets;
+	}
+
+	public void setSubscriptionPackets(List<SubscriptionPacket> subscriptionPackets) {
+		this.subscriptionPackets = subscriptionPackets;
+	}
+    
+    
 
 }

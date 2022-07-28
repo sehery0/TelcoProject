@@ -5,10 +5,17 @@ import java.util.List;
 public class AddressType {
 	private int id;
 	private String type;
-	private List<Address> addresses;
 
 	public AddressType() {
 	}
+
+	
+	public AddressType(int id, String type) {
+		super();
+		this.id = id;
+		this.type = type;
+	}
+
 
 	public int getId() {
 		return id;
@@ -25,13 +32,6 @@ public class AddressType {
 	public void setType(String type) {
 		this.type = type;
 	}
-
-	public List<Address> getAddresses() {
-		return addresses;
-	}
-
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
-	}
+	
 
 }

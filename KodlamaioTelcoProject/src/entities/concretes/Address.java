@@ -6,16 +6,18 @@ public class Address {
 	private String city;
 	private String district;
 	private Customer customer;
+	private AddressType addressType;
 
 	public Address() {
 	}
 
-	public Address(int id, String country, String city, String district, Customer customer) {
+	public Address(int id, String country, String city, String district, Customer customer, AddressType addressType) {
 		this.id = id;
 		this.country = country;
 		this.city = city;
 		this.district = district;
 		this.customer = customer;
+		this.addressType = addressType;
 	}
 
 	public int getId() {
@@ -58,4 +60,13 @@ public class Address {
 		this.customer = customer;
 	}
 
+	public AddressType getAddressType() {
+		return addressType;
+	}
+
+	public void setAddressType(AddressType addressType) {
+		this.addressType = addressType;
+	}
+
+	
 }

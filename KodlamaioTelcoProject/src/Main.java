@@ -3,18 +3,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entities.concretes.Address;
+import entities.concretes.AddressType;
 import entities.concretes.Brand;
-import entities.concretes.Cable;
 import entities.concretes.Customer;
+import entities.concretes.Feature;
 import entities.concretes.IndividualCustomer;
 import entities.concretes.Invoice;
-import entities.concretes.Modem;
 import entities.concretes.Packet;
 import entities.concretes.Payment;
 import entities.concretes.PaymentType;
 import entities.concretes.Product;
+import entities.concretes.ProductFeature;
 import entities.concretes.Service;
 import entities.concretes.Subscription;
+import entities.concretes.SubscriptionPacket;
 
 public class Main {
 
@@ -22,23 +24,27 @@ public class Main {
 		List<Invoice> invoices = new ArrayList<>();
 		List<Subscription> subscriptions = new ArrayList<>();
 		List<Address> addresses = new ArrayList<>();
+		List<Product> products = new ArrayList<>();
 
 		Customer customer = new IndividualCustomer(1, "A123", subscriptions, addresses, "Ali", "Veli", "123456");
 
-		Address address = new Address(1, "Türkiye", "Bursa", "Kestel", customer);
-
+		AddressType addressType = new AddressType(1, "Ev");
+		Address address = new Address(1, "Türkiye", "Bursa", "Kestel", customer, addressType);
+		
 		Brand brand = new Brand();
 		brand.setId(1);
 		brand.setName("TTNET");
 
-		Cable cable = new Cable();
-		cable.setId(1);
-		cable.setLength(10);
-		cable.setType("RJ45");
+		
 
 		Packet packet = new Packet(1, "avantajlı", "12 ay", 150, 1, null);
 
-		Product modem = new Modem(1, cable, brand, "A123");
+		Feature feature1 = new Feature(1, "speed", "2.4");
+		Feature feature2 = new Feature(1, "cable");
+		ProductFeature productFeature = new ProductFeature(1, feature1);
+		List<ProductFeature> productFeatures = new ArrayList<>();
+		productFeatures.add(productFeature);
+		
 		PaymentType paymentType = new PaymentType(1, "Kredi Kartı", null);
 		Payment payment = new Payment(1, LocalDate.parse("2022-06-05"), null, paymentType);
 
@@ -47,10 +53,11 @@ public class Main {
 
 		invoices.add(invoice);
 		invoices.add(invoice2);
-		Service adsl = new Service(1, "ADSL", null, modem);
-
-		Subscription subscription = new Subscription(1, LocalDate.parse("2022-03-06"), adsl, packet,
-				LocalDate.parse("2022-05-10"), invoices, address, customer);
+		Service service = new Service(1, "ADSL", subscriptions, products);
+		Product product = new Product(1, brand, "A123", productFeatures, service);
+		List<SubscriptionPacket> subscriptionPacket = new ArrayList<>();
+		Subscription subscription = new Subscription(1, LocalDate.parse("2022-03-06"), service, packet,
+				LocalDate.parse("2022-05-10"), invoices, address, customer, subscriptionPacket);
 		subscriptions.add(subscription);
 
 		IndividualCustomer individualCustomer = new IndividualCustomer(1, "1234", subscriptions, addresses, "hakkı",

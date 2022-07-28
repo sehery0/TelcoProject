@@ -8,18 +8,18 @@ public class Packet {
     private String detail;
     private double price;
     private int period; //paketin geçerlilik süresi
-    private List<Subscription> subscriptions;
+    private List<SubscriptionPacket> subscriptionPackets;
 
     public Packet() {
     }
 
-    public Packet(int id, String name, String detail, double price, int period, List<Subscription> subscriptions) {
+    public Packet(int id, String name, String detail, double price, int period, List<SubscriptionPacket> subscriptionPackets) {
         this.id = id;
         this.name = name;
         this.detail = detail;
         this.price = price;
         this.period = period;
-        this.subscriptions = subscriptions;
+        this.subscriptionPackets = subscriptionPackets;
     }
 
     public int getId() {
@@ -62,12 +62,14 @@ public class Packet {
         this.period = period;
     }
 
-    public List<Subscription> getSubscriptions() {
-        return subscriptions;
-    }
+	public List<SubscriptionPacket> getSubscriptionPackets() {
+		return subscriptionPackets;
+	}
 
-    public void setSubscriptions(List<Subscription> subscriptions) {
-        this.subscriptions = subscriptions;
-    }
+	public void setSubscriptionPackets(List<SubscriptionPacket> subscriptionPackets) {
+		this.subscriptionPackets = subscriptionPackets;
+	}
+
+   
 
 }

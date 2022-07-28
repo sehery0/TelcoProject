@@ -6,13 +6,13 @@ public class Service {
 	private int id;
 	private String name;
 	private List<Subscription> subscriptions;
-	private Product product;
+	private List<Product> products;
 
-	public Service(int id, String name, List<Subscription> subscriptions, Product product) {
+	public Service(int id, String name, List<Subscription> subscriptions, List<Product> products) {
 		this.id = id;
 		this.name = name;
 		this.subscriptions = subscriptions;
-		this.product = product;
+		this.products = products;
 	}
 
 	public int getId() {
@@ -39,12 +39,13 @@ public class Service {
 		this.subscriptions = subscriptions;
 	}
 
-	public Product getProduct() {
-		return product;
+	public List<Product> getProducts() {
+		return products;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
+	
 }
